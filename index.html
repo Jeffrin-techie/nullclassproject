@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cab and Bus Hiring Service</title>
+    <link rel="stylesheet" href="styles.css">
+    
+</head>
+<body>
+     
+    
+
+    
+    <!-- Header Section for Language Selection -->
+    <header>
+        <h1 id="headerText"
+            data-en="Welcome to Cab and Bus Hiring Service"
+            data-hi="कैब और बस हायरिंग सेवा में स्वागत है"
+            data-te="క్యాబ్ మరియు బస్ హైరింగ్ సేవ"
+            data-ml="കാബ് ആൻഡ് ബസ് ഹയർ സേവനത്തിൽ സ്വാഗതം"
+            data-ta="கேப் மற்றும் பஸ் வாடகை சேவை"
+            data-de="Willkommen bei Cab- und Busvermietungsservice"
+            data-tr="Cab ve Otobüs Kiralama Hizmeti'ne Hoşgeldiniz"
+            data-zh="欢迎来到出租车和巴士租赁服务"
+            data-ja="キャブおよびバスのレンタルサービスへようこそ">
+            Welcome to Cab and Bus Hiring Service
+        </h1>
+        <label id="languageLabel" for="languageSelector"
+            data-en="Select Language"
+            data-hi="भाषा चुनें"
+            data-te="భాషను ఎంచుకోండి"
+            data-ml="ഭാഷ തിരഞ്ഞെടുക്കുക"
+            data-ta="மொழியை தேர்வு செய்யவும்"
+            data-de="Sprache auswählen"
+            data-tr="Dil Seç"
+            data-zh="选择语言"
+            data-ja="言語を選択してください">
+            Select Language:
+        </label>
+        <select id="languageSelector" onchange="changeLanguage()">
+            <option value="en">English</option>
+            <option value="hi">Hindi</option>
+            <option value="te">Telugu</option>
+            <option value="ml">Malayalam</option>
+            <option value="ta">Tamil</option>
+            <option value="de">German</option>
+            <option value="tr">Turkish</option>
+            <option value="zh">Chinese</option>
+            <option value="ja">Japanese</option>
+        </select>
+    </header>
+
+    <!-- Main Section for Cab and Bus Booking -->
+    <main>
+        <section>
+            <p id="travelOptionText"
+                data-en="Select your travel option below:"
+                data-hi="नीचे अपनी यात्रा का विकल्प चुनें:"
+                data-te="మీ ప్రయాణ ఎంపికను క్రింద ఎంచుకోండి:"
+                data-ml="നിങ്ങളുടെ യാത്രാ ഓപ്ഷൻ താഴെ തിരഞ്ഞെടുക്കുക:"
+                data-ta="உங்கள் பயண தேர்வை கீழே தேர்வு செய்யவும்:"
+                data-de="Wählen Sie Ihre Reiseoption unten:"
+                data-tr="Aşağıda seyahat seçeneğinizi seçin:"
+                data-zh="选择您的旅行选项："
+                data-ja="以下から旅行オプションを選択してください：">
+                Select your travel option below:
+            </p>
+            <button onclick="showBookingForm('bus')"
+                data-en="Book a Bus"
+                data-hi="बस बुक करें"
+                data-te="బస్ బుక్ చేయండి"
+                data-ml="ബസ് ബുക്ക് ചെയ്യുക"
+                data-ta="பஸ் முன்பதிவு"
+                data-de="Bus buchen"
+                data-tr="Bir Otobüs Kiralayın"
+                data-zh="预订巴士"
+                data-ja="バスを予約する">
+                Book a Bus
+            </button>
+            <button onclick="showBookingForm('cab')"
+                data-en="Book a Cab"
+                data-hi="कैब बुक करें"
+                data-te="క్యాబ్ బుక్ చేయండి"
+                data-ml="കാബ് ബുക്ക് ചെയ്യുക"
+                data-ta="கேப் முன்பதிவு"
+                data-de="Taxi buchen"
+                data-tr="Bir Taksi Kiralayın"
+                data-zh="预订出租车"
+                data-ja="タクシーを予約する">
+                Book a Cab
+            </button>
+
+            <div id="bookingForm" style="display: none;">
+                <h2 id="formTitle"
+                    data-en="Booking Form"
+                    data-hi="बुकिंग फॉर्म"
+                    data-te="బుకింగ్ ఫారం"
+                    data-ml="ബുക്കിംഗ് ഫോം"
+                    data-ta="புத்தகம் படிவம்"
+                    data-de="Buchungsformular"
+                    data-tr="Rezervasyon Formu"
+                    data-zh="预订表格"
+                    data-ja="予約フォーム">
+                    Booking Form
+                </h2>
+
+                <!-- Bus Booking Options -->
+                <div id="busOptions">
+                    <label for="busSize"
+                        data-en="Bus Size:"
+                        data-hi="बस का आकार:"
+                        data-te="బస్ పరిమాణం:"
+                        data-ml="ബസ് വലുപ്പം:"
+                        data-ta="பஸ் அளவு:"
+                        data-de="Busgröße:"
+                        data-tr="Otobüs Boyutu:"
+                        data-zh="巴士大小："
+                        data-ja="バスのサイズ：">
+                        Bus Size:
+                    </label>
+                    <select id="busSize">
+                        <option value="small">Small (10-15 seats)</option>
+                        <option value="medium">Medium (20-30 seats)</option>
+                        <option value="large">Large (40+ seats)</option>
+                    </select>
+
+                    <p>-</p>
+                    <input type="checkbox" id="wifi" /> WiFi
+                    <input type="checkbox" id="ac" /> Air Conditioning
+                    <input type="checkbox" id="tv" /> TV
+                    <p id="amenitiesText"
+    data-en="Amenities:"
+    data-hi="सुविधाएँ:"
+    data-te="సुवిధలు:"
+    data-ml="സൗകര്യങ്ങൾ:"
+    data-ta="சலுகைகள்:"
+    data-de="Ausstattung:"
+    data-tr="İmkanlar:"
+    data-zh="设施："
+    data-ja="アメニティ：">
+    Amenities:
+</p>
+
+                </div>
+
+                <!-- Cab Booking Options -->
+                <div id="cabOptions" style="display: none;">
+                    <label for="cabType"
+                        data-en="Cab Type:"
+                        data-hi="कैब प्रकार:"
+                        data-te="క్యాబ్ రకం:"
+                        data-ml="കാബ് തരം:"
+                        data-ta="கேப் வகை:"
+                        data-de="Taxi Typ:"
+                        data-tr="Taksi Türü:"
+                        data-zh="出租车类型："
+                        data-ja="タクシーの種類：">
+                        Cab Type:
+                    </label>
+                    <select id="cabType">
+                        <option value="standard">Standard</option>
+                        <option value="premium">Premium</option>
+                        <option value="suv">SUV</option>
+                    </select>
+                </div>
+
+                <label for="customRoute"
+                    data-en="Custom Route:"
+                    data-hi="कस्टम मार्ग:"
+                    data-te="కస్టమ్ రూట్:"
+                    data-ml="കസ്റ്റം റൂട്ടുകൾ:"
+                    data-ta="அடைவு பாதை:"
+                    data-de="Benutzerdefinierte Route:"
+                    data-tr="Özel Rota:"
+                    data-zh="自定义路线："
+                    data-ja="カスタムルート：">
+                    Custom Route:
+                </label>
+                <input type="text" id="customRoute" placeholder="Enter your route" />
+
+                <button onclick="submitBooking()"
+                    data-en="Submit Booking"
+                    data-hi="बुकिंग सबमिट करें"
+                    data-te="బుకింగ్ సమర్పించండి"
+                    data-ml="ബുക്കിംഗ് സമർപ്പിക്കുക"
+                    data-ta="புத்தகம் சமர்ப்பிக்கவும்"
+                    data-de="Buchung absenden"
+                    data-tr="Rezervasyonu Gönder"
+                    data-zh="提交预订"
+                    data-ja="予約を提出する">
+                    Submit Booking
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Login Section for Review Submission -->
+    <div class="container">
+        <h1 id="headerText"
+            data-en="Rate and Review Bus Routes"
+            data-hi="बस मार्गों की रेटिंग और समीक्षा करें"
+            data-te="బస్ రూట్ల రేటింగ్ మరియు సమీక్ష"
+            data-ml="ബസ് റൂട്ടുകൾ നിരക്ക് ചെയ്യുക"
+            data-ta="பஸ் வழிகளை மதிப்பிடுங்கள் மற்றும் மதிப்பாய்வு செய்யவும்"
+            data-de="Bewerten und Überprüfen von Busrouten"
+            data-tr="Otobüs Rotalarını Değerlendir ve Yorum Yap"
+            data-zh="评分和评论巴士路线"
+            data-ja="バスルートの評価とレビュー">
+            Rate and Review Bus Routes
+        </h1>
+
+        <!-- Login Form -->
+        <div id="loginForm" class="login-form">
+            <!-- Login Form -->
+            <h2>Login to Submit Review</h2>
+            <label for="username">Username:</label>
+            <input type="text" id="username" placeholder="Enter Username">
+            <button onclick="login()">Login</button>
+        </div>
+
+        <!-- Review Section (only visible after login) -->
+        <div id="reviewSection" class="review-section" style="display: none;">
+            <h2 id="rateAndReview">Rate and Review Your Journey</h2>
+
+            
+              
+              
+            <!-- Star Rating (1-5 stars) -->
+            <div id="starRating">
+                <span class="star" onclick="submitStarRating(1)">&#9733;</span>
+                <span class="star" onclick="submitStarRating(2)">&#9733;</span>
+                <span class="star" onclick="submitStarRating(3)">&#9733;</span>
+                <span class="star" onclick="submitStarRating(4)">&#9733;</span>
+                <span class="star" onclick="submitStarRating(5)">&#9733;</span>
+            </div>
+
+            <!-- Thumbs Up / Down -->
+            <div id="rating">
+                <button onclick="submitRating(1)">👍</button>
+                <button onclick="submitRating(-1)">👎</button>
+            </div>
+
+            <h2
+                data-en="Login to Submit Review"
+                data-hi="समीक्षा सबमिट करने के लिए लॉगिन करें"
+                data-te="సమీక్ష సమర్పించడానికి లాగిన్ చేయండి"
+                data-ml="സमीക്ഷയുമായി പ്രവേശിക്കാൻ ലോഗിൻ ചെയ്യുക"
+                data-ta="மதிப்புரையை சமர்ப்பிக்க உள்நுழைக"
+                data-de="Einloggen, um eine Bewertung abzugeben"
+                data-tr="Yorum Göndermek İçin Giriş Yap"
+                data-zh="提交评论以登录"
+                data-ja="レビューを提出するためにログイン">
+                Login to Submit Review
+            </h2>
+            <label for="username"
+                data-en="Username:"
+                data-hi="यूज़रनेम:"
+                data-te="వాడుకరునామా:"
+                data-ml="ഉപയോക്തൃനാമം:"
+                data-ta="பயனர்பெயர்:"
+                data-de="Benutzername:"
+                data-tr="Kullanıcı Adı:"
+                data-zh="用户名："
+                data-ja="ユーザー名：">
+                Username:
+            </label>
+            <input type="text" id="username" placeholder="Enter Username">
+            <button onclick="login()"
+                data-en="Login"
+                data-hi="लॉगिन"
+                data-te="లాగిన్"
+                data-ml="ലോഗിൻ"
+                data-ta="உள்நுழைக"
+                data-de="Anmelden"
+                data-tr="Giriş Yap"
+                data-zh="登录"
+                data-ja="ログイン">
+                Login
+            </button>
+        </div>
+
+        <!-- Review Section (only visible after login) -->
+        <div id="reviewSection" class="review-section" style="display: none;">
+            <h2
+                data-en="Rate and Review Your Journey"
+                data-hi="अपनी यात्रा की रेटिंग और समीक्षा करें"
+                data-te="మీ ప్రయాణాన్ని రేటింగ్ చేయండి మరియు సమీక్షించండి"
+                data-ml="നിങ്ങളുടെ യാത്രയെ നിരക്ക് ചെയ്യുക"
+                data-ta="உங்கள் பயணத்தை மதிப்பிடுங்கள்"
+                data-de="Bewerten und Überprüfen Sie Ihre Reise"
+                data-tr="Seyahatinizi Değerlendirin ve Yorum Yapın"
+                data-zh="对您的旅程进行评分和评论"
+                data-ja="あなたの旅行を評価してレビューする">
+                Rate and Review Your Journey
+            </h2>
+            <textarea id="reviewText" placeholder="Write your review here..." rows="4" cols="50"></textarea><br><br>
+            <button onclick="submitReview()" 
+                data-en="Submit Review"
+                data-hi="समीक्षा सबमिट करें"
+                data-te="సమీక్ష సమర్పించండి"
+                data-ml="സമീക്ഷയടക്കം സമർപ്പിക്കുക"
+                data-ta="விமர்சனம் சமர்ப்பிக்கவும்"
+                data-de="Bewertung absenden"
+                data-tr="Yorumu Gönder"
+                data-zh="提交评论"
+                data-ja="レビューを送信する">
+                Submit Review
+            </button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
